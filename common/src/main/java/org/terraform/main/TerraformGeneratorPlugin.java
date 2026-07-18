@@ -144,6 +144,7 @@ public class TerraformGeneratorPlugin extends JavaPlugin implements Listener {
         new TerraformCommandManager(this, "terraform", "terra");
         Bukkit.getPluginManager().registerEvents(this, this);
         Bukkit.getPluginManager().registerEvents(new SchematicListener(), this);
+        Bukkit.getPluginManager().registerEvents(new LootListener(), this);
         logger.stdout("Detected version: " + Version.VERSION_STRING + ", plugin will use Version."+ Version.VERSION + ", packName: " + Version.VERSION.getPackName());
         try {
             injector = Version.getInjector();
