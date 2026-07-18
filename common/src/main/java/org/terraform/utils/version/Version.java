@@ -83,26 +83,7 @@ public enum Version {
             InstantiationException,
             IllegalAccessException
     {
-
-        String spigotAppend;
-        //https://www.spigotmc.org/threads/how-do-i-detect-if-a-server-is-running-paper.499064/
-        try {
-            // Any other works, just the shortest I could find.
-            Class.forName("com.destroystokyo.paper.ParticleBuilder");
-            spigotAppend = "";
-        } catch (ClassNotFoundException ignored) {
-            TerraformGeneratorPlugin.logger.info("Spigot detected");
-            spigotAppend = "spigot.";
-            try{
-                Class.forName("org.terraform." + spigotAppend + VERSION.getPackName() + ".NMSInjector")
-                     .getDeclaredConstructor()
-                     .newInstance();
-            }catch(ClassNotFoundException ignoreAgain){
-                TerraformGeneratorPlugin.logger.stdout("There was no spigot package for this version. This is fine if you are BELOW 1.21.9.");
-                spigotAppend = "";
-            }
-        }
-        return (NMSInjectorAbstract) Class.forName("org.terraform." + spigotAppend + VERSION.getPackName() + ".NMSInjector")
+        return (NMSInjectorAbstract) Class.forName("org.terraform." + VERSION.getPackName() + ".NMSInjector")
                                                   .getDeclaredConstructor()
                                                   .newInstance();
     }
