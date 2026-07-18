@@ -862,6 +862,20 @@ public class FastNoise {
     private FastNoise m_cellularNoiseLookup;
     private float m_gradientPerturbAmp = (float) (1.0 / 0.45);
 
+    private float xOffset = 0f;
+    private float yOffset = 0f;
+    private float zOffset = 0f;
+
+    private void calculateOffsets() {
+        long seedHash = m_seed;
+        seedHash = seedHash * 2862933555777941757L + 3037000493L;
+        xOffset = (float) ((seedHash & 0xFFFFFFFFL) % 1000000 - 500000);
+        seedHash = seedHash * 2862933555777941757L + 3037000493L;
+        yOffset = (float) ((seedHash & 0xFFFFFFFFL) % 1000000 - 500000);
+        seedHash = seedHash * 2862933555777941757L + 3037000493L;
+        zOffset = (float) ((seedHash & 0xFFFFFFFFL) % 1000000 - 500000);
+    }
+
     public FastNoise() {
         this(1337);
     }
@@ -869,6 +883,7 @@ public class FastNoise {
     public FastNoise(int seed) {
         m_seed = seed;
         CalculateFractalBounding();
+        calculateOffsets();
     }
 
     // Returns a 0 float/double
@@ -1480,6 +1495,7 @@ public class FastNoise {
     // Default: 1337
     public void SetSeed(int seed) {
         m_seed = seed;
+        calculateOffsets();
     }
 
     // Sets frequency for all noise types
@@ -1569,9 +1585,9 @@ public class FastNoise {
     }
 
     public float GetNoise(float x, float y, float z) {
-        x *= m_frequency;
-        y *= m_frequency;
-        z *= m_frequency;
+        x = (x + xOffset) * m_frequency;
+        y = (y + yOffset) * m_frequency;
+        z = (z + zOffset) * m_frequency;
 
         switch (m_noiseType) {
             case Value:
@@ -1623,8 +1639,8 @@ public class FastNoise {
     }
 
     public float GetNoise(float x, float y) {
-        x *= m_frequency;
-        y *= m_frequency;
+        x = (x + xOffset) * m_frequency;
+        y = (y + yOffset) * m_frequency;
 
         switch (m_noiseType) {
             case Value:
