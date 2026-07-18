@@ -985,6 +985,24 @@ public class TConfig extends YamlFileInterface {
     @YamlKey("feature_toggle.decorations")
     public boolean FEATURE_DECORATIONS_ENABLED = true;
 
+    // -=[VANILLA STRUCTURE TOGGLES]=-
+    @YamlKey("structures.pyramid.use-vanilla")
+    public boolean STRUCTURES_PYRAMID_USE_VANILLA = false;
+    @YamlKey("structures.stronghold.use-vanilla")
+    public boolean STRUCTURES_STRONGHOLD_USE_VANILLA = false;
+    @YamlKey("structures.mansion.use-vanilla")
+    public boolean STRUCTURES_MANSION_USE_VANILLA = false;
+    @YamlKey("structures.village.use-vanilla")
+    public boolean STRUCTURES_VILLAGE_USE_VANILLA = false;
+    @YamlKey("structures.monument.use-vanilla")
+    public boolean STRUCTURES_MONUMENT_USE_VANILLA = false;
+    @YamlKey("structures.ancientcity.use-vanilla")
+    public boolean STRUCTURES_ANCIENTCITY_USE_VANILLA = false;
+    @YamlKey("structures.outpost.use-vanilla")
+    public boolean STRUCTURES_OUTPOST_USE_VANILLA = false;
+    @YamlKey("structures.mineshaft.use-vanilla")
+    public boolean STRUCTURES_MINESHAFT_USE_VANILLA = false;
+
     // Extras
     @YamlComment("What language file should be used?")
     @YamlKey("lang")

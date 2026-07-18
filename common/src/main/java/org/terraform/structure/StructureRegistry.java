@@ -2,6 +2,7 @@ package org.terraform.structure;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.terraform.biome.BiomeBank;
 import org.terraform.data.CoordPair;
 import org.terraform.data.MegaChunk;
 import org.terraform.data.TerraformWorld;
@@ -120,21 +121,61 @@ public class StructureRegistry {
 
     public static void init() {
         registerStructure(StructureType.VILLAGE, new VillageHousePopulator());
-        registerStructure(StructureType.VILLAGE, new VillagePopulator());
-        registerStructure(StructureType.VILLAGE, new OutpostPopulator());
+        
+        if (TConfig.c.STRUCTURES_VILLAGE_USE_VANILLA) {
+            registerStructure(StructureType.VILLAGE, new GenericVanillaStructurePopulator("villages", TConfig.areStructuresEnabled(), 981772));
+        } else {
+            registerStructure(StructureType.VILLAGE, new VillagePopulator());
+        }
+        
+        if (TConfig.c.STRUCTURES_OUTPOST_USE_VANILLA) {
+            registerStructure(StructureType.VILLAGE, new GenericVanillaStructurePopulator("pillager_outposts", TConfig.areStructuresEnabled() && TConfig.c.STRUCTURES_OUTPOST_ENABLED, 871217));
+        } else {
+            registerStructure(StructureType.VILLAGE, new OutpostPopulator());
+        }
 
-        registerStructure(StructureType.MEGA_DUNGEON, new PyramidPopulator());
-        registerStructure(StructureType.MEGA_DUNGEON, new MonumentPopulator());
-        registerStructure(StructureType.MEGA_DUNGEON, new StrongholdPopulator());
-        registerStructure(StructureType.MEGA_DUNGEON, new MansionPopulator());
-        registerStructure(StructureType.MEGA_DUNGEON, new AncientCityPopulator());
+        if (TConfig.c.STRUCTURES_PYRAMID_USE_VANILLA) {
+            registerStructure(StructureType.MEGA_DUNGEON, new GenericVanillaStructurePopulator("desert_pyramids", TConfig.areStructuresEnabled() && TConfig.c.STRUCTURES_PYRAMID_ENABLED, 72917299, BiomeBank.DESERT));
+        } else {
+            registerStructure(StructureType.MEGA_DUNGEON, new PyramidPopulator());
+        }
+
+        if (TConfig.c.STRUCTURES_MONUMENT_USE_VANILLA) {
+            registerStructure(StructureType.MEGA_DUNGEON, new GenericVanillaStructurePopulator("ocean_monuments", TConfig.areStructuresEnabled() && TConfig.c.STRUCTURES_MONUMENT_ENABLED, 91717277));
+        } else {
+            registerStructure(StructureType.MEGA_DUNGEON, new MonumentPopulator());
+        }
+
+        if (TConfig.c.STRUCTURES_STRONGHOLD_USE_VANILLA) {
+            registerStructure(StructureType.MEGA_DUNGEON, new GenericVanillaStructurePopulator("strongholds", TConfig.areStructuresEnabled() && TConfig.c.STRUCTURES_STRONGHOLD_ENABLED, 1928372));
+        } else {
+            registerStructure(StructureType.MEGA_DUNGEON, new StrongholdPopulator());
+        }
+
+        if (TConfig.c.STRUCTURES_MANSION_USE_VANILLA) {
+            registerStructure(StructureType.MEGA_DUNGEON, new GenericVanillaStructurePopulator("woodland_mansions", TConfig.areStructuresEnabled() && TConfig.c.STRUCTURES_MANSION_ENABLED, 88127372));
+        } else {
+            registerStructure(StructureType.MEGA_DUNGEON, new MansionPopulator());
+        }
+
+        if (TConfig.c.STRUCTURES_ANCIENTCITY_USE_VANILLA) {
+            registerStructure(StructureType.MEGA_DUNGEON, new GenericVanillaStructurePopulator("ancient_cities", TConfig.areStructuresEnabled() && TConfig.c.STRUCTURES_ANCIENTCITY_ENABLED, 192837482));
+        } else {
+            registerStructure(StructureType.MEGA_DUNGEON, new AncientCityPopulator());
+        }
+
         if (Version.VERSION.isAtLeast(Version.v1_21)) {
             registerStructure(StructureType.MEGA_DUNGEON, new TrialChamberPopulator());
         }
 
         registerStructure(StructureType.LARGE_CAVE, new LargeCavePopulator());
 
-        registerStructure(StructureType.LARGE_MISC, new MineshaftPopulator());
+        if (TConfig.c.STRUCTURES_MINESHAFT_USE_VANILLA) {
+            registerStructure(StructureType.LARGE_MISC, new GenericVanillaStructurePopulator("mineshafts", TConfig.areStructuresEnabled() && TConfig.c.STRUCTURES_MINESHAFT_ENABLED, 9283719));
+        } else {
+            registerStructure(StructureType.LARGE_MISC, new MineshaftPopulator());
+        }
+
         registerStructure(StructureType.LARGE_MISC, new CatacombsPopulator());
         registerStructure(StructureType.LARGE_MISC, new BadlandsMinePopulator());
         registerStructure(StructureType.LARGE_MISC, new WarmOceanRuinsPopulator());
