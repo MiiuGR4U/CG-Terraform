@@ -103,7 +103,7 @@ public class CustomBiomeHandler {
         // aN is BIOME
         ResourceKey<Biome> newKey = ResourceKey.create(
                 Registries.BIOME,
-                ResourceLocation.fromNamespaceAndPath("terraformgenerator", biomeType.toString().toLowerCase(Locale.ENGLISH))
+                ResourceLocation.fromNamespaceAndPath("criasgamers", biomeType.toString().toLowerCase(Locale.ENGLISH))
         );
 
         // Biome.a is BiomeBuilder

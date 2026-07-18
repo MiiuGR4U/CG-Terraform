@@ -24,7 +24,7 @@ public enum CustomBiomeType {
     private boolean isCold = false;
 
     CustomBiomeType() {
-        this.key = "terraformgenerator:" + this.toString().toLowerCase(Locale.ENGLISH);
+        this.key = "criasgamers:" + this.toString().toLowerCase(Locale.ENGLISH);
         this.fogColor = "";
         this.waterColor = "";
         this.waterFogColor = "";
@@ -40,7 +40,7 @@ public enum CustomBiomeType {
                     String foliageColor,
                     String grassColor)
     {
-        this.key = "terraformgenerator:" + this.toString().toLowerCase(Locale.ENGLISH);
+        this.key = "criasgamers:" + this.toString().toLowerCase(Locale.ENGLISH);
         this.fogColor = fogColor;
         this.waterColor = waterColor;
         this.waterFogColor = waterFogColor;
