@@ -166,6 +166,7 @@ public enum BiomeBank {
     BOG_RIVER(new BogRiverHandler(), BiomeType.RIVER, BiomeClimate.DRY_VEGETATION),
     CHERRY_GROVE_RIVER(new CherryGroveRiverHandler(), BiomeType.RIVER, BiomeClimate.COLD),
     SCARLET_FOREST_RIVER(new ScarletForestRiverHandler(), BiomeType.RIVER, BiomeClimate.COLD),
+    ENDER_FOREST_RIVER(new EnderForestRiverHandler(), BiomeType.RIVER, BiomeClimate.COLD),
     JUNGLE_RIVER(new JungleRiverHandler(), BiomeType.RIVER, BiomeClimate.HUMID_VEGETATION),
     FROZEN_RIVER(new FrozenRiverHandler(),
             BiomeType.RIVER,

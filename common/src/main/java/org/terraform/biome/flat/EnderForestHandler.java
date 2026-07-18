@@ -37,7 +37,7 @@ public class EnderForestHandler extends BiomeHandler {
     @Override
     public Material @NotNull [] getSurfaceCrust(@NotNull Random rand) {
         return new Material[] {
-                GenUtils.randChoice(rand, Material.END_STONE, Material.END_STONE, Material.MYCELIUM, Material.OBSIDIAN),
+                GenUtils.randChoice(rand, Material.END_STONE, Material.END_STONE, Material.END_STONE, Material.MYCELIUM),
                 Material.END_STONE,
                 Material.END_STONE,
                 GenUtils.randChoice(rand, Material.END_STONE, Material.STONE),
@@ -89,5 +89,10 @@ public class EnderForestHandler extends BiomeHandler {
                 );
             }
         }
+    }
+
+    @Override
+    public @NotNull BiomeBank getRiverType() {
+        return BiomeBank.ENDER_FOREST_RIVER;
     }
 }
