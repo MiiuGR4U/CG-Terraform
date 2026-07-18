@@ -11,6 +11,7 @@ public enum CustomBiomeType {
     CHERRY_GROVE("", "69faff", "", "87fffb", "ffa1fc", "acff96"),
     SCARLET_FOREST("", "", "", "", "fc3103", "ff7700"),
     CRYSTALLINE_CLUSTER("e54fff", "c599ff", "e54fff", "", "", ""),
+    ENDER_FOREST("14091b", "4a0d4f", "240326", "09000a", "630d69", "c7cbb3"),
     ;
 
     private final @NotNull String key;

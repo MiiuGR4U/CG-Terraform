@@ -297,6 +297,8 @@ public class TConfig extends YamlFileInterface {
     public int BIOME_CHERRYGROVE_WEIGHT = 3;
     @YamlKey("biome.scarletforest.weight")
     public int BIOME_SCARLETFOREST_WEIGHT = 3;
+    @YamlKey("biome.enderforest.weight")
+    public int BIOME_ENDERFOREST_WEIGHT = 3;
     @YamlKey("biome.snowytaiga.weight")
     public int BIOME_SNOWY_TAIGA_WEIGHT = 6;
     @YamlKey("biome.snowywasteland.weight")

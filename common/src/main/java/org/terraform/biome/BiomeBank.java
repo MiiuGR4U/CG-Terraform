@@ -300,6 +300,11 @@ public enum BiomeBank {
             BiomeClimate.COLD,
             TConfig.c.BIOME_SCARLETFOREST_WEIGHT
     ),
+    ENDER_FOREST(new EnderForestHandler(),
+            BiomeType.FLAT,
+            BiomeClimate.COLD,
+            TConfig.c.BIOME_ENDERFOREST_WEIGHT
+    ),
     CHERRY_GROVE(new CherryGroveHandler(),
             BiomeType.FLAT,
             BiomeClimate.COLD,

@@ -395,6 +395,26 @@ public class FractalTreeBuilder {
                     .setLengthDecrement(1)
                     .setHeightVariation(1);
                 break;
+            case ENDER_TREE:
+                this.setBaseHeight(9)
+                    .setBaseThickness(3.5f)
+                    .setThicknessDecrement(0.5f)
+                    .setLengthDecrement(0.5f)
+                    .setLengthDecrementMultiplier(1.3f)
+                    .setMinThickness(0.5f)
+                    .setMaxDepth(5)
+                    .setTrunkType(Material.OBSIDIAN)
+                    .setHeightVariation(2)
+                    .setAlwaysOneStraightBranchLength(10)
+                    .setAlwaysOneStraight(4)
+                    .setAlwaysOneStraightExtendedBranches(false)
+                    .setMinBend(Math.PI / 4)
+                    .setMaxBend(Math.PI / 2)
+                    .setFractalLeaves(new FractalLeaves().setRadius(4, 2, 4)
+                                                         .setMaterial(Material.AMETHYST_BLOCK)
+                                                         .setConeLeaves(true)
+                                                         .setWeepingLeaves(0.2f, 1));
+                break;
             case SWAMP_TOP:
                 this.setBaseHeight(8)
                     .setBaseThickness(3)

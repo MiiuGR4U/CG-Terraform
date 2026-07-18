@@ -252,6 +252,7 @@ public class FractalTypes {
         ),
         SCARLET_BIG,
         SCARLET_SMALL,
+        ENDER_TREE,
         SAVANNA_SMALL,
         SAVANNA_BIG,
         WASTELAND_BIG,
