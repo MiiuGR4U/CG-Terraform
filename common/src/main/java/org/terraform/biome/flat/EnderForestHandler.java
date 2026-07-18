@@ -37,7 +37,7 @@ public class EnderForestHandler extends BiomeHandler {
     @Override
     public Material @NotNull [] getSurfaceCrust(@NotNull Random rand) {
         return new Material[] {
-                GenUtils.randChoice(rand, Material.END_STONE, Material.END_STONE, Material.END_STONE, Material.MYCELIUM),
+                GenUtils.randChoice(rand, Material.END_STONE, Material.END_STONE, Material.END_STONE, Material.END_STONE_BRICKS),
                 Material.END_STONE,
                 Material.END_STONE,
                 GenUtils.randChoice(rand, Material.END_STONE, Material.STONE),
@@ -54,17 +54,15 @@ public class EnderForestHandler extends BiomeHandler {
                                    @NotNull PopulatorDataAbstract data)
     {
         Material surface = data.getType(rawX, surfaceY, rawZ);
-        if (surface == Material.END_STONE || surface == Material.MYCELIUM) {
-            if (GenUtils.chance(random, 1, 15)) {
-                if (GenUtils.chance(random, 7, 10)) {
+        if (surface == Material.END_STONE || surface == Material.END_STONE_BRICKS) {
+            if (GenUtils.chance(random, 1, 20)) {
+                if (GenUtils.chance(random, 1, 2)) {
                     data.setType(rawX, surfaceY + 1, rawZ, Material.CHORUS_FLOWER);
                 } else {
                     data.setType(rawX, surfaceY + 1, rawZ, Material.ALLIUM);
                 }
             } else if (GenUtils.chance(random, 1, 40)) {
                 data.setType(rawX, surfaceY + 1, rawZ, Material.AMETHYST_CLUSTER);
-            } else if (GenUtils.chance(random, 1, 60)) {
-                data.setType(rawX, surfaceY + 1, rawZ, Material.END_ROD);
             }
         }
     }
@@ -79,7 +77,7 @@ public class EnderForestHandler extends BiomeHandler {
 
             Material base = data.getType(sLoc.getX(), sLoc.getY(), sLoc.getZ());
             if (tw.getBiomeBank(sLoc.getX(), sLoc.getZ()) == BiomeBank.ENDER_FOREST
-                && (base == Material.END_STONE || base == Material.MYCELIUM || BlockUtils.isDirtLike(base)))
+                && (base == Material.END_STONE || base == Material.END_STONE_BRICKS || BlockUtils.isDirtLike(base)))
             {
                 new FractalTreeBuilder(FractalTypes.Tree.ENDER_TREE).build(tw,
                         data,
@@ -89,6 +87,11 @@ public class EnderForestHandler extends BiomeHandler {
                 );
             }
         }
+    }
+
+    @Override
+    public @NotNull BiomeBank getBeachType() {
+        return BiomeBank.ENDER_FOREST;
     }
 
     @Override

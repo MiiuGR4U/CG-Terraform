@@ -31,7 +31,7 @@ public class EnderForestRiverHandler extends BiomeHandler {
     @Override
     public Material @NotNull [] getSurfaceCrust(@NotNull Random rand) {
         return new Material[] {
-                GenUtils.randChoice(rand, Material.END_STONE, Material.END_STONE, Material.GRAVEL, Material.OBSIDIAN),
+                GenUtils.randChoice(rand, Material.END_STONE, Material.END_STONE, Material.END_STONE, Material.OBSIDIAN),
                 Material.END_STONE,
                 Material.END_STONE,
                 GenUtils.randChoice(rand, Material.END_STONE, Material.STONE),
