@@ -49,13 +49,16 @@ public class LocateBiomeCommand extends TerraCommand {
 
         if (!args.isEmpty()) {
             try {
+                BiomeBank targetBiome = (BiomeBank) this.parseArguments(sender, args).get(0);
+                p.sendMessage(ChatColor.GREEN + "Locating biome " + targetBiome.name() + "...");
+
                 TerraformGeneratorPlugin.taskScheduler.execAsync(
                         new Task(
                                 p.getUniqueId(),
                                 TerraformWorld.get(p.getWorld()),
                                 p.getLocation().getBlockX(),
                                 p.getLocation().getBlockZ(),
-                                (BiomeBank) this.parseArguments(sender, args).get(0)
+                                targetBiome
                         )
                 );
             }

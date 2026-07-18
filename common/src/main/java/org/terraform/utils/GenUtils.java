@@ -190,16 +190,18 @@ public class GenUtils {
                 (int) centerBlockLocation.y
         );
         int radius = 0;
+        int maxRadius = 150; // Search up to 150 sections (approx 19,200 blocks) to prevent infinite loop
 
-        while (true) {
+        while (radius <= maxRadius) {
             for (BiomeSection sect : center.getRelativeSurroundingSections(radius)) {
                 if (sect.getBiomeBank() == biome) {
                     SimpleLocation sectionCenter = sect.getCenter();
                     return new Vector2f(sectionCenter.getX(), sectionCenter.getZ());
                 }
-                radius++;
             }
+            radius++;
         }
+        return null;
     }
 
     public static Object weightedChoice(@NotNull Random rand, Object @NotNull ... candidates) {
