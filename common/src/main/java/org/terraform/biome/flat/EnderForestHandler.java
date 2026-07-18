@@ -55,12 +55,10 @@ public class EnderForestHandler extends BiomeHandler {
     {
         Material surface = data.getType(rawX, surfaceY, rawZ);
         if (surface == Material.END_STONE || surface == Material.END_STONE_BRICKS) {
-            if (GenUtils.chance(random, 1, 20)) {
-                if (GenUtils.chance(random, 1, 2)) {
-                    data.setType(rawX, surfaceY + 1, rawZ, Material.CHORUS_FLOWER);
-                } else {
-                    data.setType(rawX, surfaceY + 1, rawZ, Material.ALLIUM);
-                }
+            if (GenUtils.chance(random, 1, 150)) {
+                data.setType(rawX, surfaceY + 1, rawZ, Material.CHORUS_FLOWER);
+            } else if (GenUtils.chance(random, 1, 50)) {
+                data.setType(rawX, surfaceY + 1, rawZ, Material.ALLIUM);
             } else if (GenUtils.chance(random, 1, 40)) {
                 data.setType(rawX, surfaceY + 1, rawZ, Material.AMETHYST_CLUSTER);
             }
